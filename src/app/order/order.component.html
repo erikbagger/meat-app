@@ -3,7 +3,7 @@
 
   <section class="content">
     <section class="invoice">
-      {{form.value | json}} {{form.valid}}
+      <!-- {{form.value | json}} {{form.valid}} -->
           <form #form="ngForm">
             <div class="row">
               <div class="col-xs-12">
@@ -29,7 +29,7 @@
               </div>
               <div class="col-sm-3 col-xs-6">
                   <mt-input-container label="Número" errorMessage="Campo  obrigatório">
-                    <input type="text" class="form-control" name="optional" placeholder="Complemento" ngModel />
+                    <input type="text" class="form-control" name="optionalAddress" placeholder="Complemento" ngModel />
                   </mt-input-container>
               </div>
               <!-- /.col -->
@@ -56,35 +56,17 @@
                   </div>
 
               </div>
-              <!-- /.col -->
               <div class="col-sm-6 col-xs-12">
                 <p class="lead">Frete e Total:</p>
-
-                <div class="table-responsive">
-                  <table class="table">
-                    <tbody><tr>
-                      <th style="width:50%">Itens:</th>
-                      <td class="text-right">R$ 20,00</td>
-                    </tr>
-                    <tr>
-                      <th>Frete:</th>
-                      <td class="text-right">R$ 8,00</td>
-                    </tr>
-                    <tr>
-                      <th>Total:</th>
-                      <td class="text-right">R$ 28,00</td>
-                    </tr>
-                  </tbody></table>
-                </div>
+                <mt-delivery-costs [itemsValue]="total()" [deliveryFare]="delivery"></mt-delivery-costs>
               </div>
-              <!-- /.col -->
             </div>
 
           </form>
 
           <div class="row">
             <div class="col-xs-12">
-              <button [disabled]="!form.valid" href="order-summary.html" class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Concluir Pedido
+              <button (click)="checkOrder(form.value)" [disabled]="!form.valid || cartItems().length == 0" href="order-summary.html" class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Concluir Pedido
               </button>
             </div>
           </div>
