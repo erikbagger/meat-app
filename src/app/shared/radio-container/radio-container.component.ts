@@ -5,7 +5,6 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms'
 @Component({
   selector: 'mt-radio-container',
   templateUrl: './radio-container.component.html',
-  styleUrls: ['./radio-container.component.css'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,

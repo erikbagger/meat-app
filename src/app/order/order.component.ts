@@ -8,8 +8,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'mt-order',
-  templateUrl: './order.component.html',
-  styleUrls: ['./order.component.css']
+  templateUrl: './order.component.html'
 })
 export class OrderComponent implements OnInit {
 
