@@ -5,31 +5,34 @@
       <h3 class="box-title">Carrinho</h3>
     </div>
 
-    <div class="box-body">
-      <div class="table-responsive">
-          <table class="table">
-            <tbody>
-            <tr *ngFor="let cartItem of getItems()">
-              <th style="width:60%"> {{cartItem.quantity}}x {{cartItem.item.name}}</th>
-  
-              <td class="text-right">{{cartItem.value() | currency: 'BRL': true}}</td>
-
-              <td class="text-right">
-                  <a (click)="remove(cartItem)" class="btn btn-sm danger"><i class="fa fa-remove"></i></a>
-              </td>
-            </tr>
-            <tr>
-              <th>Total:</th>
-  
-              <td class="text-right">{{total() | currency: 'BRL': true}}</td>
-            </tr>
-          </tbody></table>
+      <div class="box-body">
+        <div class="text-center" *ngIf="getItems().length === 0">
+          <p>Seu carrinho está vazio! </p>
         </div>
-    </div>
-    <div class="box-footer" *ngIf="getItems().length > 0">
-      <div class="pull-right">
-        <button (click)="clear()" type="button" class="btn btn-danger"><i class="fa fa-trash" ></i> Limpar</button>
-        <a [routerLink]="['/order']" class="btn btn-success"><i class="fa fa-credit-card"></i> Fechar Pedido</a>
+        <div class="table-responsive" *ngIf="getItems().length > 0">
+            <table class="table">
+              <tbody>
+              <tr *ngFor="let cartItem of getItems()">
+                <th style="width:60%"> {{cartItem.quantity}}x {{cartItem.item.name}}</th>
+    
+                <td class="text-right">{{cartItem.value() | currency: 'BRL': true}}</td>
+  
+                <td class="text-right">
+                    <a (click)="remove(cartItem)" class="btn btn-sm danger"><i class="fa fa-remove"></i></a>
+                </td>
+              </tr>
+              <tr>
+                <th>Total:</th>
+    
+                <td class="text-right">{{total() | currency: 'BRL': true}}</td>
+              </tr>
+            </tbody></table>
+          </div>
+      </div>
+      <div class="box-footer" *ngIf="getItems().length > 0">
+        <div class="pull-right">
+          <button (click)="clear()" type="button" class="btn btn-danger"><i class="fa fa-trash" ></i> Limpar</button>
+          <a [routerLink]="['/order']" class="btn btn-success"><i class="fa fa-credit-card"></i> Fechar Pedido</a>
+        </div>
       </div>
     </div>
-  </div>

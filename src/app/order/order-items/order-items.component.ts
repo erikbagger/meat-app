@@ -3,7 +3,7 @@ import { CartItem } from '../../restaurant-detail/menu/shopping-cart/cart-item.m
 
 @Component({
   selector: 'mt-order-items',
-  templateUrl: './order-items.component.html']
+  templateUrl: './order-items.component.html'
 })
 export class OrderItemsComponent implements OnInit {
 

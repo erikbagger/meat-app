@@ -3,7 +3,7 @@ import { ShoppingCartService } from '../../restaurant-detail/menu/shopping-cart/
 
 @Component({
   selector: 'mt-delivery-costs',
-  templateUrl: './delivery-costs.component.html']
+  templateUrl: './delivery-costs.component.html'
 })
 export class DeliveryCostsComponent implements OnInit {
 
